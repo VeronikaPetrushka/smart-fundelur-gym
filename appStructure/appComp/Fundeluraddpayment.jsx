@@ -91,13 +91,24 @@ const Fundeluraddpayment = ({ payment }) => {
     return (
         <View style={common.container}>
 
-            <TouchableOpacity
-                style={[form.doneBtn, (!type || !amount || !selectedClient || !date) && {opacity: 0.5}]}
-                onPress={addPayment}
-                disabled={!type || !amount || !selectedClient || !date}
-            >
-                <Text style={form.doneBtnText}>Done</Text>
-            </TouchableOpacity>
+            {
+                fundelurClients.length > 0 ? (
+                    <TouchableOpacity
+                        style={[form.doneBtn, (!type || !amount || !selectedClient || !date) && {opacity: 0.5}]}
+                        onPress={addPayment}
+                        disabled={!type || !amount || !selectedClient || !date}
+                    >
+                        <Text style={form.doneBtnText}>Done</Text>
+                    </TouchableOpacity>
+                ) : (
+                    <TouchableOpacity
+                        style={form.doneBtn}
+                        onPress={() => navigation.navigate('Fundelurhome')}
+                    >
+                        <Text style={form.doneBtnText}>Home</Text>
+                    </TouchableOpacity>
+                )
+            }
 
             <ScrollView style={{ width: '100%', paddingTop: 40 }}>
 
@@ -208,7 +219,7 @@ const Fundeluraddpayment = ({ payment }) => {
                                     source={fundelur}
                                     style={onboarding.image}
                                 />
-                                <Text style={home.noText}>You haven't added any clients yet</Text>
+                                <Text style={home.noText}>To add a payment, firstly, you need to create a client in the Home screen.</Text>
                             </View>
                     )
                 }
