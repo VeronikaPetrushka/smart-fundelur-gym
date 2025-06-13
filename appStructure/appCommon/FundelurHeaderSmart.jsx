@@ -8,25 +8,38 @@ const FundelurHeaderSmart = ({ pageName, main }) => {
 
     return (
         <View style={header.container}>
-            {!main && (
+            {!main ? (
                 <TouchableOpacity
-                    style={{marginRight: 8}}
+                    style={{flexDirection: 'row', alignItems: 'center'}}
                     onPress={() => navigation.goBack()}>
                     <Image
                         source={back}
                         style={header.back} />
+                    <Text style={
+                        {
+                            fontWeight: '400',
+                            color: '#fff',
+                            fontSize: main ? 25 : 16,
+                            lineHeight: main ? 28 : 20,
+                            marginLeft: 8
+                        }
+                    }>
+                        {pageName}
+                    </Text>
                 </TouchableOpacity>
-            )}
-            <Text style={
-                {
-                    fontWeight: '400',
-                    color: '#fff',
-                    fontSize: main ? 25 : 16,
-                    lineHeight: main ? 28 : 20
-                }
-            }>
-                {pageName}
-            </Text>
+            ) : (
+                <Text style={
+                    {
+                        fontWeight: '400',
+                        color: '#fff',
+                        fontSize: main ? 25 : 16,
+                        lineHeight: main ? 28 : 20
+                    }
+                }>
+                    {pageName}
+                </Text>
+            )
+        }
         </View>
     )
 };

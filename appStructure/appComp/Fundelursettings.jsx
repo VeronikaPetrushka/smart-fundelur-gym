@@ -19,35 +19,44 @@ const Fundelursettings = () => {
     return (
         <View style={common.container}>
 
-            <View style={[home.clientCard, common.row, {justifyContent: 'space-between', marginTop: 40, padding: 15}]}>
+            <TouchableOpacity
+                style={[home.clientCard, common.row, { justifyContent: 'space-between', marginTop: 40, padding: 15 }]}
+                onPress={() => navigation.navigate('Fundelurnotifications')}
+            >
                 <Text style={[home.clientName, {marginBottom: 0}]}>Manage Notifications</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('Fundelurnotifications')}>
+                <View>
                     <Image
                         source={back}
                         style={[header.back, { marginRight: 0, transform: [{ rotate: '180deg' }] }]}
                     />
-                </TouchableOpacity>
-            </View>
+                </View>
+            </TouchableOpacity>
 
-            <View style={[home.clientCard, common.row, {justifyContent: 'space-between', padding: 15}]}>
+            <TouchableOpacity
+                style={[home.clientCard, common.row, { justifyContent: 'space-between', padding: 15 }]}
+                onPress={() => navigation.navigate('Fundelurcurrency')}
+            >
                 <Text style={[home.clientName, {marginBottom: 0}]}>Currency selection</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('Fundelurcurrency')}>
+                <View>
                     <Image
                         source={back}
                         style={[header.back, { marginRight: 0, transform: [{ rotate: '180deg' }] }]}
                     />
-                </TouchableOpacity>
-            </View>
+                </View>
+            </TouchableOpacity>
 
-            <View style={[home.clientCard, common.row, {justifyContent: 'space-between', padding: 15}]}>
+            <TouchableOpacity
+                style={[home.clientCard, common.row, { justifyContent: 'space-between', padding: 15 }]}
+                onPress={fundelurGymPolicy}
+            >
                 <Text style={[home.clientName, {marginBottom: 0}]}>Privacy Policy</Text>
-                <TouchableOpacity onPress={fundelurGymPolicy}>
+                <View>
                     <Image
                         source={back}
                         style={[header.back, { marginRight: 0, transform: [{ rotate: '180deg' }] }]}
                     />
-                </TouchableOpacity>
-            </View>
+                </View>
+            </TouchableOpacity>
 
         </View>
     )

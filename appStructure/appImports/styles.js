@@ -54,8 +54,8 @@ export const nav = StyleSheet.create({
 
     button: {
         borderRadius: 100,
-        width: 70,
-        height: 70,
+        width: 67,
+        height: 67,
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 10,
